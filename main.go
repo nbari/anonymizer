@@ -14,6 +14,7 @@ import (
 
 func Proxy(w http.ResponseWriter, r *http.Request) {
 	director := func(req *http.Request) {
+		fmt.Printf("req = %+v\n", req.URL)
 		req = r
 		req.URL.Scheme = "https"
 		req.URL.Host = r.Host
